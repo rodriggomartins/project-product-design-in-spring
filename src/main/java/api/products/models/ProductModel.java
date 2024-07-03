@@ -43,6 +43,10 @@ public class ProductModel {
   private Instant updatedAt;
 
 
+  /*
+  Esses dois construtores, vao servir para injecao de dependencias la no meu services
+  nem sempre vai ser feito assim, mas e bom fazer de outras maneiras
+  */
   public ProductModel(){
     
   }

@@ -1,10 +1,14 @@
 package api.products.services;
 
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import api.products.dto.ProductRecordDto;
 import api.products.models.ProductModel;
@@ -16,6 +20,9 @@ public class ProductServices {
 	private ProductRepository productRepository;
 
 	/*
+	Obs: quando eu nao fizer injecao de dependencias
+	eu preciso colocar um construtor
+	como ta abaixo
  	public ProductServices(ProductRepository productRepository){
 		this.productRepository = productRepository;
 	}*/
@@ -38,6 +45,14 @@ public class ProductServices {
 	}
 
 
+
+
+
+	public Optional<ProductModel>productId(String idproducts){
+		// convertendo uuid para string.
+		// o optional, pq o findbyid retorna um booleano true or false
+		return productRepository.findById(UUID.fromString(idproducts));
+	}
 	
 			
 }
